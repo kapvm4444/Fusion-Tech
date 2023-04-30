@@ -14,7 +14,7 @@
                 <div class="row">
                     <div class="col-md-8">
                         <div class="display-6 mb-3">About Fusion Tech</div>
-                        <p class="mb-3 cst-text-razer">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec eu pulvinar magna. Phasellus semper scelerisque purus, et semper nisl lacinia sit amet. Praesent venenatis turpis vitae purus semper, eget sagittis velit venenatis. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos
+                        <p class="mb-3 cst-text-razer">FusionTech deals in Wholesale Trading, Retailing, Importing, Distributing a wide range of Computer And Laptops, Computer Accessories, Build PC’s desktop. Our team driven through our passion for advanced computing and technology. We hold the highest standards when it comes to build PCs. Our team consists of professionals who would love to hear what you need. We make sure that we offer the best solution to customers keeping their budget in consideration. We learn about what you do, we listen to what you need and we tell you if there is anything that you don’t need. Meeting the best standards for building PCs and understanding the requirement of every user, Our team at FusionTech understand your requirements when it comes to build custom PCs and make sure that we provide the best solutions to you within your budget</p>
                         <hr class="light">
                     </div>
                     <div class="col-md-3 col-md-offset-1 cst-text-razer">
@@ -35,7 +35,7 @@
             </div>
             <div class="footer-copyright">
                 <div class="container">
-                    <img src="Res/footer.png" width="191" height="46" class="m-2 ms-0"><br>
+                    <a href="index.php"><img src="Res/footer.png" width="191" height="46" class="m-2 ms-0"></a><br>
                     © <span id="Year"></span> All Rights reserved
                 </div>
             </div>

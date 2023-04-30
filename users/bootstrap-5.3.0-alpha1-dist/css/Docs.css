@@ -1,0 +1,198 @@
+@charset "UTF-8";
+
+::selection{
+    background: #0d9d3b;
+    color: white;
+}
+::-moz-selection{
+    background: #0d9d3b;
+    color: white;
+}
+
+::-webkit-scrollbar{
+    display: none;
+}
+
+
+@font-face {
+    font-family: "Renner";
+    src: url('../../../Res/Fonts/Renner.ttf') ;
+}
+
+#container{
+    font-family: 'Renner';
+    background: hsla(197, 83%, 7%, 1);
+    background: linear-gradient(315deg, hsla(197, 83%, 7%, 1) , hsla(131, 82%, 15%, 1) , hsla(141, 62%, 35%, 1));
+    background: -moz-linear-gradient(315deg, hsla(197, 83%, 7%, 1) , hsla(131, 82%, 15%, 1) , hsla(141, 62%, 35%, 1));
+    background: -webkit-linear-gradient(315deg, hsla(197, 83%, 7%, 1) , hsla(131, 82%, 15%, 1) , hsla(141, 62%, 35%, 1));
+    height: 100%;
+    background-size: 150% 150%;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    animation: GradientBG 10s ease infinite;
+}
+
+@keyframes GradientBG {
+    0%{background-position:0% 0%}
+    25%{background-position:100% 0%}
+    50%{background-position:100% 100%}
+    75%{background-position:0% 100%}
+    100%{background-position:0% 0%}
+}
+
+.box{
+    box-shadow: 0 0 50px black;
+}
+
+.cst-hover{
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    display: inline-block;
+    padding: 15px 20px;
+    position: relative;
+}
+
+.cst-hover:after{
+    background: none repeat scroll 0 0 transparent;
+    bottom: 0;
+    content: "";
+    display: block;
+    height: 2px;
+    left: 50%;
+    position: absolute;
+    background: #50C878;
+    transition: width 0.3s ease, left 0.3s ease;
+    width: 0;
+}
+
+.cst-hover:hover:after {
+    width: 100%;
+    left: 0;
+}
+
+.cst-active{
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    display: inline-block;
+    padding: 15px 20px;
+    position: relative;
+}
+
+.cst-active:after{
+    background: none repeat scroll 0 0 transparent;
+    bottom: 0;
+    content: "";
+    display: block;
+    height: 2px;
+    left: 0;
+    position: absolute;
+    background: #50C878;
+    transition: width 0.3s ease, left 0.3s ease;
+    width: 100%;
+}
+
+.text-instagram{
+    color: #ff34bf;
+}
+
+/******************************Custom Colors**************************************/
+
+.cst-bg-razer{
+    background-color: #50C878 !important;
+}
+.cst-bg-dark{
+    background-color: #222222 !important;
+}
+.cst-bg-darker{
+    background-color: #050505 !important;
+}
+.cst-bg-light{
+    background-color: #DEDDD1 !important;
+}
+.cst-bg-lighter{
+    background-color: #E8E8DE !important;
+}
+/******************************Custom Colors**************************************/
+
+.cst-text-razer{
+    color: #50C878 !important;
+}
+.cst-text-dark{
+    color: #222222 !important;
+}
+.cst-text-darker{
+    color: #050505 !important;
+}
+.cst-text-light{
+    color: #DEDDD1 !important;
+}
+.cst-text-lighter{
+    color: #E8E8DE !important;
+}
+
+/******************************Custom Colors**************************************/
+
+.shop-item{
+    transition: 0.5s ease;
+
+}
+.shop-item:hover{
+    box-shadow: 0 10px 20px #818181;
+    transform: translateY(-10px);
+}
+
+.gal-item{
+    transition: 0.4s ease;
+}
+
+.gal-item:hover{
+    transform: scale(1.1);
+
+}
+
+
+.comp-tabs{
+    color: #50C878;
+    background: #050505;
+    font-weight: bolder;
+    margin: 20px 0;
+    padding: 10px 50px;
+}
+
+.comp-tabs:hover,.comp-tabs:focus{
+    border-color: #050505;
+    color: #50C878;
+}
+
+.cst-font{
+    font-family: Bahnschrift SemiBold;
+}
+
+.w-60{
+    width: 60%;
+}
+
+.w-40{
+    width: 40%;
+}
+
+.separator {
+    display: flex;
+    align-items: center;
+    text-align: center;
+}
+
+.separator::before,
+.separator::after {
+    content: '';
+    flex: 1;
+    border-bottom: 1px solid #000;
+}
+
+.separator:not(:empty)::before {
+    margin-right: .25em;
+}
+
+.separator:not(:empty)::after {
+    margin-left: .25em;
+}

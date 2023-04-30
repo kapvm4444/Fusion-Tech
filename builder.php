@@ -1,9 +1,28 @@
 <?php $page = "build";
-
 $connect = mysqli_connect("localhost", "root", "", "fusiontech");
-$quary = "select distinct brand from cabinet";
-$exec = mysqli_query($connect, $quary);
 
+if ($_COOKIE['rem'] == 1){
+    $username = $_COOKIE['username'];
+    $password = $_COOKIE['password'];
+
+    $qry = "select * from users where password = '" . $password . "' AND username = '" . $username . "'";
+    $out = mysqli_query($connect, $qry);
+    if (mysqli_num_rows($out) > 0) {
+        while ($fetch = mysqli_fetch_assoc($out)) {
+            session_start();
+            $_SESSION['username'] = $_COOKIE['username'];
+            $_SESSION['password'] = $_COOKIE['password'];
+        }
+    }
+}
+else{
+    session_start();
+}
+if (!isset($_SESSION['username'])){
+    sleep(1);
+    header("Location: http://localhost/Fusion%20Tech/users/login.php");
+    exit();
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -16,17 +35,251 @@ $exec = mysqli_query($connect, $quary);
     <script src="bootstrap-5.3.0-alpha1-dist/js/bootstrap.bundle.min.js"></script>
     <title>Fusion Tech - Builder</title>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+    <script src="bootstrap-5.3.0-alpha1-dist/js/Print/html5-3.6-respond-1.1.0.min.js"></script>
     <script>
+        var cpu = 0;
+        var ram = 0;
+        var MB = 0;
+        var cabinet = 0;
+        var gpu = 0;
+        var ssd = 0;
+        var cooler = 0;
+        var smps = 0;
+        var total = 0;
+        var os = 0;
+
+        $(document).ready(function (){
+            $('#catSelfCpu').change(function (){
+                let str = $(this).children("option:selected").text();
+                let arr = str.split("+");
+                cpu = Number(arr[arr.length-1]);
+                total = cpu + ram + MB + cabinet + gpu + ssd + cooler + smps + os;
+                $('#subtotal').html(total);
+            })
+        });
+
+        $(document).ready(function (){
+            $('#catSelfRam').change(function (){
+                let str = $(this).children("option:selected").text();
+                let arr = str.split("+");
+                ram = Number(arr[arr.length-1]);
+                total = cpu + ram + MB + cabinet + gpu + ssd + cooler + smps + os;
+                $('#subtotal').html(total);
+            })
+        });
+
+        $(document).ready(function (){
+            $('#catSelfMB').change(function (){
+                let str = $(this).children("option:selected").text();
+                let arr = str.split("+");
+                MB = Number(arr[arr.length-1]);
+                total = cpu + ram + MB + cabinet + gpu + ssd + cooler + smps + os;
+                $('#subtotal').html(total);
+            })
+        });
+
+        $(document).ready(function (){
+            $('#catSelfCab').change(function (){
+                let str = $(this).children("option:selected").text();
+                let arr = str.split("+");
+                cabinet = Number(arr[arr.length-1]);
+                total = cpu + ram + MB + cabinet + gpu + ssd + cooler + smps + os;
+                $('#subtotal').html(total);
+            })
+        });
+
+        $(document).ready(function (){
+            $('#catSelfGpu').change(function (){
+                let str = $(this).children("option:selected").text();
+                let arr = str.split("+");
+                gpu = Number(arr[arr.length-1]);
+                total = cpu + ram + MB + cabinet + gpu + ssd + cooler + smps + os;
+                $('#subtotal').html(total);
+            })
+        });
+
+        $(document).ready(function (){
+            $('#catSelfSsd').change(function (){
+                let str = $(this).children("option:selected").text();
+                let arr = str.split("+");
+                ssd = Number(arr[arr.length-1]);
+                total = cpu + ram + MB + cabinet + gpu + ssd + cooler + smps + os;
+                $('#subtotal').html(total);
+            })
+        });
+
+        $(document).ready(function (){
+            $('#catSelfCooler').change(function (){
+                let str = $(this).children("option:selected").text();
+                let arr = str.split("+");
+                cooler = Number(arr[arr.length-1]);
+                total = cpu + ram + MB + cabinet + gpu + ssd + cooler + smps + os;
+                $('#subtotal').html(total);
+            })
+        });
+
+        $(document).ready(function (){
+            $('#selfcatSelfSmps').change(function (){
+                let str = $(this).children("option:selected").text();
+                let arr = str.split("+");
+                smps = Number(arr[arr.length-1]);
+                total = cpu + ram + MB + cabinet + gpu + ssd + cooler + smps + os;
+                $('#subtotal').html(total);
+            })
+        });
+
+        $(document).ready(function (){
+            $('#catSelfOS').change(function (){
+                if ($(this).val() === 'home'){
+                    os = 12000;
+                }
+                else if ($(this).val() === 'pro'){
+                    os = 16000;
+                }
+                total = cpu + ram + MB + cabinet + gpu + ssd + cooler + smps + os;
+                $('#subtotal').html(total);
+            })
+        });
+
+        //validation for all required fields
+        $(document).ready(function (){
+            $('#pdf').click(function (){
+                if (($('#catNameCpu').val() === "") || ($('#catNameRam').val() === "") || ($('#catNameMB').val() === "") || ($('#catNameCab').val() === "") || ($('#catNameGpu').val() === "") || ($('#catNameSsd').val() === "") || ($('#catNameCooler').val() === "") || ($('#catNameSmps').val() === "") || ($('#catNameOS').val() === "")){
+                    if (($('#catSelfCpu').val() === "") || ($('#catSelfRam').val() === "") || ($('#catSelfMB').val() === "") || ($('#catSelfCab').val() === "") || ($('#catSelfGpu').val() === "") || ($('#catSelfSsd').val() === "") || ($('#catSelfCooler').val() === "") || ($('#catSelfSmps').val() === "") || ($('#catSelfOS').val() === "")){
+                        alert("Please Select All Fields")
+                    }
+                }
+                else {
+
+                }
+            })
+        });
+
+
+    </script>
+    <script>
+        //display cpu models
+        $(document).ready(function (){
+            $('#catNameCpu').change(function (){
+                var cpuBrand = $(this).val();
+                if(cpuBrand !== ""){
+                    $.ajax({
+                        type: 'post',
+                        url: 'getData/dropdowns-primary.php',
+                        data: {'cpuBrand':cpuBrand},
+                        success: function (result){
+                            $('#catSelfCpu').html(result);
+                        }
+                    })
+                }
+
+            })
+        });
+
+
+        //Display RAM Brands
+        $(document).ready(function (){
+            $('#catSelfCpu').change(function (){
+                var cpuModel = $(this).val();
+                if(cpuModel !== ""){
+                    $.ajax({
+                        type: 'post',
+                        url: 'getData/dropdowns-primary.php',
+                        data: {'cpuModel':cpuModel},
+                        success: function (result){
+                            $('#catNameRam').html(result);
+                        }
+                    })
+                }
+
+            })
+        });
+
+
+        //Display RAM Models
+        $(document).ready(function (){
+            $('#catNameRam').change(function (){
+                var ramBrand = $(this).val();
+                var cpuModel = $('#catSelfCpu').val();
+                if(ramBrand !== ""){
+                    $.ajax({
+                        type: 'post',
+                        url: 'getData/dropdowns-primary.php',
+                        data: {'ramBrand':ramBrand, 'cpuModel2':cpuModel},
+                        success: function (result){
+                            $('#catSelfRam').html(result);
+                        }
+                    })
+                }
+
+            })
+        });
+
+
+        //display MB Brands
+        $(document).ready(function (){
+            $('#catSelfRam').change(function (){
+                var ramModel = $(this).val();
+                var cpuModel = $('#catSelfCpu').val();
+                if(ramModel !== "" && cpuModel !== ""){
+                    $.ajax({
+                        type: 'post',
+                        url: 'getData/dropdowns-primary.php',
+                        data: {'ramModelMb':ramModel, 'cpuModelMb':cpuModel},
+                        success: function (result){
+                            $('#catNameMB').html(result);
+                        }
+                    })
+                }
+
+            })
+        });
+
+
+        //display MB models
+        $(document).ready(function (){
+            $('#catNameMB').change(function (){
+                var ramModel = $('#catSelfRam').val();
+                var cpuModel = $('#catSelfCpu').val();
+                var mbBrand = $(this).val();
+                if(mbBrand !== ""){
+                    $.ajax({
+                        type: 'post',
+                        url: 'getData/dropdowns-primary.php',
+                        data: {'ramModelMb2':ramModel, 'cpuModelMb2':cpuModel, 'mbBrand':mbBrand},
+                        success: function (result){
+                            $('#catSelfMB').html(result);
+                        }
+                    })
+                }
+
+            })
+        });
+
+
+        //displaying cabinet brands
+        $(document).ready(function (){
+            $('#catSelfMB').change(function (){
+                    $.ajax({
+                        url: 'getData/cabinets.php',
+                        success: function (result){
+                            $('#catNameCab').html(result);
+                        }
+                    })
+            })
+        });
+
+
+        //displaying cabinet models
         $(document).ready(function (){
             $('#catNameCab').change(function (){
                 var cabComp = $(this).val();
                 if(cabComp !== ""){
                     $.ajax({
                         type: 'post',
-                        url: 'getData/dropdown.php',
+                        url: 'getData/dropdowns-primary.php',
                         data: {'cabCompany':cabComp},
                         success: function (result){
-                            // $('#catSelfCab').css('display', 'visi')
                            $('#catSelfCab').html(result);
                         }
                     })
@@ -34,6 +287,160 @@ $exec = mysqli_query($connect, $quary);
 
             })
         });
+
+
+        //display Graphics Brands
+        $(document).ready(function (){
+            $('#catSelfCab').change(function (){
+                var cabModel = $(this).val();
+                if(cabModel !== ""){
+                    $.ajax({
+                        type: 'post',
+                        url: 'getData/gpu.php',
+                        data: {'cabModel':cabModel},
+                        success: function (result){
+                            $('#catNameGpu').html(result);
+                        }
+                    })
+                }
+
+            })
+        });
+
+
+        //display Graphics Models
+        $(document).ready(function (){
+            $('#catNameGpu').change(function (){
+                var gpuBrand = $(this).val();
+                if(gpuBrand !== ""){
+                    $.ajax({
+                        type: 'post',
+                        url: 'getData/gpu.php',
+                        data: {'gpuBrand':gpuBrand},
+                        success: function (result){
+                            $('#catSelfGpu').html(result);
+                        }
+                    })
+                }
+
+            })
+        });
+
+
+        //display SSD Brands
+        $(document).ready(function (){
+            $('#catSelfGpu').change(function (){
+                var gpuModel = $(this).val();
+                if(gpuModel !== ""){
+                    $.ajax({
+                        type: 'post',
+                        url: 'getData/ssd.php',
+                        data: {'gpuModel':gpuModel},
+                        success: function (result){
+                            $('#catNameSsd').html(result);
+                        }
+                    })
+                }
+
+            })
+        });
+
+
+        //display SSD Models
+        $(document).ready(function (){
+            $('#catNameSsd').change(function (){
+                var ssdBrand = $(this).val();
+                if(ssdBrand !== ""){
+                    $.ajax({
+                        type: 'post',
+                        url: 'getData/ssd.php',
+                        data: {'ssdBrand':ssdBrand},
+                        success: function (result){
+                            $('#catSelfSsd').html(result);
+                        }
+                    })
+                }
+
+            })
+        });
+
+
+        //display Cooler Brands
+        $(document).ready(function (){
+            $('#catSelfSsd').change(function (){
+                var ssdModel = $(this).val();
+                if(ssdModel !== ""){
+                    $.ajax({
+                        type: 'post',
+                        url: 'getData/cooler.php',
+                        data: {'ssdModel':ssdModel},
+                        success: function (result){
+                            $('#catNameCooler').html(result);
+                        }
+                    })
+                }
+
+            })
+        });
+
+
+        //display Cooler Models
+        $(document).ready(function (){
+            $('#catNameCooler').change(function (){
+                var coolerBrand = $(this).val();
+                if(coolerBrand !== ""){
+                    $.ajax({
+                        type: 'post',
+                        url: 'getData/cooler.php',
+                        data: {'coolerBrand':coolerBrand},
+                        success: function (result){
+                            $('#catSelfCooler').html(result);
+                        }
+                    })
+                }
+
+            })
+        });
+
+
+        //display SMPS Brands
+        $(document).ready(function (){
+            $('#catSelfCooler').change(function (){
+                var coolerModel = $(this).val();
+                if(coolerModel !== ""){
+                    $.ajax({
+                        type: 'post',
+                        url: 'getData/smps.php',
+                        data: {'coolerModel':coolerModel},
+                        success: function (result){
+                            $('#catNameSmps').html(result);
+                        }
+                    })
+                }
+
+            })
+        });
+
+
+        //display SMPS Models
+        $(document).ready(function (){
+            $('#catNameSmps').change(function (){
+                var smpsBrand = $(this).val();
+                if(smpsBrand !== ""){
+                    $.ajax({
+                        type: 'post',
+                        url: 'getData/smps.php',
+                        data: {'smpsBrand':smpsBrand},
+                        success: function (result){
+                            $('#catSelfSmps').html(result);
+                        }
+                    })
+                }
+
+            })
+        });
+
+
     </script>
 </head>
 <body class="cst-bg-dark text-white">
@@ -45,173 +452,181 @@ $exec = mysqli_query($connect, $quary);
 </div>
 
 <!--Builder-->
-<div class="cst-bg-darker row text-white">
-    <div class="col-sm-12 col-lg-4">
-        <img src="Res/image/BuilderPC.png" class="img-fluid">
-    </div>
-    <div class="col-sm-12 col-lg-8 ">
-        <table class="w-100">
-            <tr class="p-5">
-                <td class="p-5">
-                    <label class="form-label text-white fw-bold">Cabinet</label>
-                    <select class="form-select border-1 border-success d-block" id="catNameCab">
-                        <option value="">--Please Select--</option>
-                        <?php
+<form action="pdf_grnerator.php" method="post">
+    <div class="cst-bg-darker row text-white" id="Builder">
+        <div class="col-sm-12 col-lg-4">
+            <img src="Res/image/BuilderPC.png" class="img-fluid">
+        </div>
+
+        <div class="col-sm-12 col-lg-8">
+
+            <table class="w-100">
+
+                <tr class="p-5">
+                    <td class="p-5 pb-0">
+                        <label class="form-label text-white fw-bold">Processor <span   class="text-danger">*</label>
+
+                        <select class="form-select border-1 border-success d-block" id="catNameCpu" name="processor" required>
+                            <option value="">-- Please Select --</option>
+                            <?php
+                            $quary = "select distinct brand from cpu";
+                            $exec = mysqli_query($connect, $quary);
                             if(mysqli_num_rows($exec) > 0){
                                 while($data = mysqli_fetch_assoc($exec)){
-                                    echo '<option value="'.$data[brand].'">'.$data[brand].'</option>';
+                                    echo '<option value="'.$data['brand'].'">'.$data['brand'].'</option>';
                                 }
                             }
-                        ?>
-                    </select>
-                </td>
-                <td class="p-5">
-                    <label class="form-label text-white fw-bold">Cabinet Model</label>
-                    <select class="form-select border-1 border-success d-block" id="catSelfCab">
-                        <option value="">--Please Select--</option>
-                    </select>
-                </td>
-            </tr>
+                            ?>
+                        </select>
+                    </td>
+                    <td class="p-5 pb-0">
+                        <label class="form-label text-white fw-bold">Processor Model <span class="text-danger">*</span></label>
+                        <select class="form-select border-1 border-success d-block" id="catSelfCpu" name="p_model" required>
+                            <option value="">-- Please Select --</option>
+                        </select>
+                    </td>
+                </tr>
 
-            <tr class="p-5">
-                <td class="p-5">
-                    <label class="form-label text-white fw-bold">Processor</label>
-                    <select class="form-select border-1 border-success d-block" id="catNameCpu">
-                        <option value="">--Please Select--</option>
-                    </select>
-                </td>
-                <td class="p-5">
-                    <label class="form-label text-white fw-bold">Processor Model</label>
-                    <select class="form-select border-1 border-success d-block" id="catSelfCpu">
-                        <option value="">--Please Select--</option>
-                    </select>
-                </td>
-            </tr>
+                <tr class="p-5">
+                    <td class="p-5 pb-0">
+                        <label class="form-label text-white fw-bold">RAM <span class="text-danger">*</span></label>
+                        <select class="form-select border-1 border-success d-block" id="catNameRam" required>
+                            <option value="">-- Please Select --</option>
+                        </select>
+                    </td>
+                    <td class="p-5 pb-0">
+                        <label class="form-label text-white fw-bold">RAM Model <span   class="text-danger">*</label>
+                        <select class="form-select border-1 border-success d-block" id="catSelfRam" required>
+                            <option value="">-- Please Select --</option>
+                        </select>
+                    </td>
+                </tr>
 
-            <tr class="p-5">
-                <td class="p-5">
-                    <label class="form-label text-white fw-bold">MotherBoard</label>
-                    <select class="form-select border-1 border-success d-block" id="catNameMB">
-                        <option value="">--Please Select--</option>
-                    </select>
-                </td>
-                <td class="p-5">
-                    <label class="form-label text-white fw-bold">MotherBoard Model</label>
-                    <select class="form-select border-1 border-success d-block" id="catSelfMB">
-                        <option value="">--Please Select--</option>
-                    </select>
-                </td>
-            </tr>
+                <tr class="p-5">
+                    <td class="p-5 pb-0">
+                        <label class="form-label text-white fw-bold">MotherBoard <span class="text-danger">*</span></label>
+                        <select class="form-select border-1 border-success d-block" id="catNameMB" required>
+                            <option value="">-- Please Select --</option>
+                        </select>
+                    </td>
+                    <td class="p-5 pb-0">
+                        <label class="form-label text-white fw-bold">MotherBoard Model <span   class="text-danger">*</label>
+                        <select class="form-select border-1 border-success d-block" id="catSelfMB" required>
+                            <option value="">-- Please Select --</option>
+                        </select>
+                    </td>
+                </tr>
 
-            <tr class="p-5">
-                <td class="p-5">
-                    <label class="form-label text-white fw-bold">Graphics Card</label>
-                    <select class="form-select border-1 border-success d-block" id="catNameGpu">
-                        <option value="">--Please Select--</option>
-                    </select>
-                </td>
-                <td class="p-5">
-                    <label class="form-label text-white fw-bold">Graphics Card Model</label>
-                    <select class="form-select border-1 border-success d-block" id="catSelfGpu">
-                        <option value="">--Please Select--</option>
-                    </select>
-                </td>
-            </tr>
+                <tr class="p-5">
+                    <td class="p-5 pb-0 w-50">
+                        <label class="form-label text-white fw-bold">Cabinet <span class="text-danger">*</span></label>
+                        <select class="form-select border-1 border-success d-block" id="catNameCab" required>
+                            <option value="">-- Please Select --</option>
 
-            <tr class="p-5">
-                <td class="p-5">
-                    <label class="form-label text-white fw-bold">RAM</label>
-                    <select class="form-select border-1 border-success d-block" id="catNameRam">
-                        <option value="">--Please Select--</option>
-                    </select>
-                </td>
-                <td class="p-5">
-                    <label class="form-label text-white fw-bold">RAM Model</label>
-                    <select class="form-select border-1 border-success d-block" id="catSelfRam">
-                        <option value="">--Please Select--</option>
-                    </select>
-                </td>
-            </tr>
+                        </select>
+                    </td>
+                    <td class="p-5 pb-0 w-60">
+                        <label class="form-label text-white fw-bold">Cabinet Model <span   class="text-danger">*</label>
+                        <select class="form-select border-1 border-success d-block" id="catSelfCab" required>
+                            <option value="">-- Please Select --</option>
+                        </select>
+                    </td>
+                </tr>
 
-            <tr class="p-5">
-                <td class="p-5">
-                    <label class="form-label text-white fw-bold">SSD</label>
-                    <select class="form-select border-1 border-success d-block" id="catNameSsd">
-                        <option value="">--Please Select--</option>
-                    </select>
-                </td>
-                <td class="p-5">
-                    <label class="form-label text-white fw-bold">SSD Model</label>
-                    <select class="form-select border-1 border-success d-block" id="catSelfSsd">
-                        <option value="">--Please Select--</option>
-                    </select>
-                </td>
-            </tr>
+                <tr class="p-5">
+                    <td class="p-5 pb-0">
+                        <label class="form-label text-white fw-bold">Graphics Card <span   class="text-danger">*</label>
+                        <select class="form-select border-1 border-success d-block" id="catNameGpu" required>
+                            <option value="">-- Please Select --</option>
+                        </select>
+                    </td>
+                    <td class="p-5 pb-0">
+                        <label class="form-label text-white fw-bold">Graphics Card Model <span class="text-danger">*</span></label>
+                        <select class="form-select border-1 border-success d-block" id="catSelfGpu" required>
+                            <option value="">-- Please Select --</option>
+                        </select>
+                    </td>
+                </tr>
 
-            <tr class="p-5">
-                <td class="p-5">
-                    <label class="form-label text-white fw-bold">Cooler</label>
-                    <select class="form-select border-1 border-success d-block" id="catNameCooler">
-                        <option value="">--Please Select--</option>
-                    </select>
-                </td>
-                <td class="p-5">
-                    <label class="form-label text-white fw-bold">Cooler Model</label>
-                    <select class="form-select border-1 border-success d-block" id="catSelfCooler">
-                        <option value="">--Please Select--</option>
-                    </select>
-                </td>
-            </tr>
+                <tr class="p-5">
+                    <td class="p-5 pb-0">
+                        <label class="form-label text-white fw-bold">SSD <span class="text-danger">*</span></label>
+                        <select class="form-select border-1 border-success d-block" id="catNameSsd" required>
+                            <option value="">-- Please Select --</option>
+                        </select>
+                    </td>
+                    <td class="p-5 pb-0">
+                        <label class="form-label text-white fw-bold">SSD Model <span   class="text-danger">*</label>
+                        <select class="form-select border-1 border-success d-block" id="catSelfSsd" required>
+                            <option value="">-- Please Select --</option>
+                        </select>
+                    </td>
+                </tr>
 
-            <tr class="p-5">
-                <td class="p-5">
-                    <label class="form-label text-white fw-bold">SMPS</label>
-                    <select class="form-select border-1 border-success d-block" id="catNameSmps">
-                        <option value="">--Please Select--</option>
-                    </select>
-                </td>
-                <td class="p-5">
-                    <label class="form-label text-white fw-bold">SMPS Model</label>
-                    <select class="form-select border-1 border-success d-block" id="catSelfSmps">
-                        <option value="">--Please Select--</option>
-                    </select>
-                </td>
-            </tr>
+                <tr class="p-5">
+                    <td class="p-5 pb-0">
+                        <label class="form-label text-white fw-bold">Cooler <span  class="text-danger">*</label>
+                        <select class="form-select border-1 border-success d-block" id="catNameCooler" required>
+                            <option value="">-- Please Select --</option>
+                        </select>
+                    </td>
+                    <td class="p-5 pb-0">
+                        <label class="form-label text-white fw-bold">Cooler Model <spa class="text-danger">*</spa></label>
+                        <select class="form-select border-1 border-success d-block" id="catSelfCooler" required>
+                            <option value="">-- Please Select --</option>
+                        </select>
+                    </td>
+                </tr>
 
-            <tr class="p-5">
-                <td class="p-5">
-                    <label class="form-label text-white fw-bold">Windows</label>
-                    <select class="form-select border-1 border-success d-block" id="catNameGpu">
-                        <option value="">--Please Select--</option>
-                        <option value="ten">Windows 10</option>
-                        <option value="eleven">Windows 11</option>
-                    </select>
-                </td>
-                <td class="p-5">
-                    <label class="form-label text-white fw-bold">Windows Edition</label>
-                    <select class="form-select border-1 border-success d-block" id="catSelfGpu">
-                        <option value="">--Please Select--</option>
-                        <option value="home">Home Edition</option>
-                        <option value="pro">Professional Edition</option>
-                    </select>
-                </td>
-            </tr>
+                <tr class="p-5">
+                    <td class="p-5 pb-0">
+                        <label class="form-label text-white fw-bold">SMPS <spa class="text-danger">*</spa></label>
+                        <select class="form-select border-1 border-success d-block" id="catNameSmps" required>
+                            <option value="">-- Please Select --</option>
+                        </select>
+                    </td>
+                    <td class="p-5 pb-0">
+                        <label class="form-label text-white fw-bold">SMPS Model <span  class="text-danger">*</label>
+                        <select class="form-select border-1 border-success d-block" id="catSelfSmps" required>
+                            <option value="">-- Please Select --</option>
+                        </select>
+                    </td>
+                </tr>
 
-        </table>
+                <tr class="p-5">
+                    <td class="p-5 pb-0">
+                        <label class="form-label text-white fw-bold">Windows <span class="text-danger">*</span></label>
+                        <select class="form-select border-1 border-success d-block" id="catNameOS" required>
+                            <option value="">-- Please Select --</option>
+                            <option value="ten">Windows 10</option>
+                            <option value="eleven">Windows 11</option>
+                        </select>
+                    </td>
+                    <td class="p-5 pb-0">
+                        <label class="form-label text-white fw-bold">Windows Edition <span class="text-danger">*</span></label>
+                        <select class="form-select border-1 border-success d-block" id="catSelfOS" required>
+                            <option value="">-- Please Select --</option>
+                            <option value="home">Home Edition</option>
+                            <option value="pro">Professional Edition</option>
+                        </select>
+                    </td>
+                </tr>
 
-        <hr class="cst-text-darker border-2"/>
+            </table>
 
-        <p class="text-white mb-0">Your Estimation Price :</p>
-        <div class="display-6 text-white fw-bold">
-            [sub-total]
+            <hr class="cst-text-darker border-2"/>
+
+            <p class="ms-5 text-white mb-0">Your Estimation Price :</p>
+            <div class="ms-5 display-6 text-white fw-bold" id="subtotal">
+                0
+            </div>
+            <p class="text-white ms-5">including GST</p>
+            <div class="my-3 ms-5"><input type="submit" value="Download PDF" name="submit" formtarget="_blank" class="btn btn-outline-dark text-success fw-bold"></div>
+<!--            <a href="#" class="cst-text-razer cst-bg-darker p-0 fw-bold text-decoration-none" onclick="window.print();">Click Here</a>-->
+
         </div>
-        <p class="text-white ">including GST</p>
-        <div class="my-3"><a href="#" class="cst-text-razer text-decoration-none fw-bold">Click Here</a> To Download the Estimated price PDF</div>
-
-
-
     </div>
-</div>
+</form>
 <!--End of builder-->
 
     <?php include 'footer.php' ?>

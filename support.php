@@ -1,4 +1,23 @@
-<?php $page = "contact" ?>
+<?php
+$connect = mysqli_connect("localhost", "root", "", "fusiontech");
+if ($_COOKIE['rem'] == 1){
+    $username = $_COOKIE['username'];
+    $password = $_COOKIE['password'];
+
+    $qry = "select * from users where password = '" . $password . "' AND username = '" . $username . "'";
+    $out = mysqli_query($connect, $qry);
+    if (mysqli_num_rows($out) > 0) {
+        while ($fetch = mysqli_fetch_assoc($out)) {
+            session_start();
+            $_SESSION['username'] = $_COOKIE['username'];
+            $_SESSION['password'] = $_COOKIE['password'];
+        }
+    }
+}
+else{
+    session_start();
+}
+$page = "contact" ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -15,7 +34,7 @@
     <!-- Header Nav Bar -->
     <?php include 'head-nav.php'?>
 
-    <div class="text-center w-100 p-5 display-2 mt-5 cst-about cst-bg-dark">
+    <div class="text-center w-100 p-5 display-2 cst-about cst-bg-dark">
         Contact Us
     </div>
 
