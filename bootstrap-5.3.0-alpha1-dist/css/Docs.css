@@ -1,11 +1,28 @@
 @charset "UTF-8";
 
+@font-face {
+    font-family: "Akira";
+    src: url('fonts/Akira.otf');
+}
+@font-face {
+    font-family: "Knock";
+    src: url('fonts/KnockKnock.ttf');
+}
+@font-face {
+    font-family: "Qualy";
+    src: url('fonts/Qualy Bold.ttf');
+}
+@font-face {
+    font-family: "Stretch";
+    src: url('fonts/StretchPro.otf');
+}
+
 ::selection{
-    background: #50C878;
+    background: #0d9d3b;
     color: white;
 }
 ::-moz-selection{
-    background: #50C878;
+    background: #0d9d3b;
     color: white;
 }
 
@@ -70,7 +87,7 @@
     background-color: #50C878 !important;
 }
 .cst-bg-dark{
-    background-color: #222222 !important;
+    background-color: #1a1b23 !important;
 }
 .cst-bg-darker{
     background-color: #050505 !important;
@@ -87,7 +104,7 @@
     color: #50C878 !important;
 }
 .cst-text-dark{
-    color: #222222 !important;
+    color: #1a1b23 !important;
 }
 .cst-text-darker{
     color: #050505 !important;
@@ -102,12 +119,11 @@
 /******************************Custom Colors**************************************/
 
 .shop-item{
-    box-shadow: 0 0 20px black;
     transition: 0.5s ease;
 
 }
 .shop-item:hover{
-    box-shadow: 10px 10px 20px #2e6e46;
+    box-shadow: 0 10px 20px #818181;
     transform: translateY(-10px);
 }
 
@@ -136,4 +152,25 @@
 
 .cst-font{
     font-family: Bahnschrift SemiBold;
+}
+
+.w-60{
+    width: 60%;
+}
+
+.w-40{
+    width: 40%;
+}
+
+.text-akira{
+    font-family: "Akira";
+}
+.text-knock{
+    font-family: "Knock";
+}
+.text-qualy{
+    font-family: "Qualy";
+}
+.text-stretch{
+    font-family: "Stretch";
 }
