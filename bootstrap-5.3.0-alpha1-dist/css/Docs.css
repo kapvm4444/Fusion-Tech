@@ -2,7 +2,7 @@
 
 @font-face {
     font-family: "Akira";
-    src: url('fonts/Akira.otf');
+    src: url('fonts/Akira.ttf');
 }
 @font-face {
     font-family: "Knock";
@@ -16,6 +16,25 @@
     font-family: "Stretch";
     src: url('fonts/StretchPro.otf');
 }
+@font-face {
+    font-family: "BehnSchrift";
+    src: url('fonts/bahnschrift.ttf');
+}
+@font-face {
+    font-family: "poppins";
+    src: url("fonts/Poppins.ttf");
+}
+
+html{
+    overflow: auto;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
+
+::-webkit-scrollbar{
+    display: none;
+}
+
 
 ::selection{
     background: #0d9d3b;
@@ -98,6 +117,9 @@
 .cst-bg-lighter{
     background-color: #E8E8DE !important;
 }
+.cst-bg-chat{
+    background-color: #013a2f !important;
+}
 /******************************Custom Colors**************************************/
 
 .cst-text-razer{
@@ -123,7 +145,7 @@
 
 }
 .shop-item:hover{
-    box-shadow: 0 10px 20px #818181;
+    box-shadow: 0 10px 20px #575656;
     transform: translateY(-10px);
 }
 
@@ -151,7 +173,7 @@
 }
 
 .cst-font{
-    font-family: Bahnschrift SemiBold;
+    font-family: 'BehnSchrift';
 }
 
 .w-60{
@@ -173,4 +195,35 @@
 }
 .text-stretch{
     font-family: "Stretch";
+}
+.text-poppins{
+    font-family: "poppins";
+}
+
+.size-20{
+    top: 8%;
+    left: 5%;
+    font-size: 20px;
+}
+
+.social-icons{
+    font-size: 20px;
+}
+
+.non-resize{
+    resize: none;
+    max-height: 400px;
+}
+
+.chat-box{
+    box-shadow: 5px 5px 10px black;
+    transition: .5s ease;
+}
+
+.cst-h{
+    height: 75rem;
+}
+
+.start-25{
+    left: 25% !important;
 }
