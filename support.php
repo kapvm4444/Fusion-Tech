@@ -1,6 +1,6 @@
 <?php
 $connect = mysqli_connect("localhost", "root", "", "fusiontech");
-if ($_COOKIE['rem'] == 1){
+if (isset($_COOKIE['rem'] ) && $_COOKIE['rem'] == 1){
     $username = $_COOKIE['username'];
     $password = $_COOKIE['password'];
 
@@ -40,12 +40,13 @@ $page = "contact" ?>
 
     <div class="row m-5">
         <div class="col p-4">
-            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3022.617359077704!2d-73.9901490674254!3d40.74844447721131!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c259a9b3117469%3A0xd134e199a405a163!2sEmpire%20State%20Building!5e0!3m2!1sen!2sin!4v1678363156330!5m2!1sen!2sin" width="800" height="800" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+<!--            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3022.617359077704!2d-73.9901490674254!3d40.74844447721131!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c259a9b3117469%3A0xd134e199a405a163!2sEmpire%20State%20Building!5e0!3m2!1sen!2sin!4v1678363156330!5m2!1sen!2sin" width="800" height="800" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>-->
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3015.9437119498966!2d70.7877936582018!3d22.29023863010531!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3959ca181888778f%3A0xe8a42bf3739bb13f!2sComputer%20Department(AVPTI)!5e0!3m2!1sen!2sin!4v1682930256018!5m2!1sen!2sin" width="800" height="800" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
         </div>
         <div class="col p-4">
             <div class="display-4 mb-5">Where Are We?</div>
-            <div class="h6 fw-light"><span><i class="fa fa-map-marker me-3"></i></span>State Building, West 34th Street, New York, NY, USA</div>
-            <div class="h6 fw-light"><span><i class="fa fa-phone me-3"></i></span>0123-123456 , 0123-789456 (From 10AM - 10PM) (MON - SAT)</div>
+            <div class="h6 fw-light"><span><i class="fa fa-map-marker me-3"></i></span>Computer Department, AVPTI, Rajkot, Gujarat, India</div>
+            <div class="h6 fw-light"><span><i class="fa fa-phone me-3"></i></span>0123-123456, 0123-789456 (From 10AM - 10PM) (MON - SAT)</div>
             <div class="h6 fw-light"><span><i class="fa fa-envelope me-3"></i></span>info@fusiontech.com</div>
 
 

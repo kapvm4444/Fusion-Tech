@@ -24,7 +24,7 @@ elseif (!empty($ssdL)){
     if(mysqli_num_rows($out) > 0){
         while ($fetch = mysqli_fetch_assoc($out)){
 
-            $ssdSize = $fetch['capacity'];
+            $ssdSize = $fetch['capacity_gb'];
             $ssdSize = ($ssdSize > 1023) ? (int)($ssdSize/1024).' TB' : (int)$ssdSize." GB" ;
 
             echo '<script>'.
@@ -63,7 +63,7 @@ elseif (!empty($ssdR)){
     if(mysqli_num_rows($out) > 0){
         while ($fetch = mysqli_fetch_assoc($out)){
 
-            $ssdSize = $fetch['capacity'];
+            $ssdSize = $fetch['capacity_gb'];
             $ssdSize = ($ssdSize >  1023) ? (int)($ssdSize/1024).' TB' : (int)$ssdSize." GB" ;
 
             echo '<script>'.

@@ -2,7 +2,7 @@
 
 $page = "compare";
 $connect = mysqli_connect("localhost", "root", "", "fusiontech");
-if ($_COOKIE['rem'] == 1){
+if (isset($_COOKIE['rem'] ) && $_COOKIE['rem'] == 1){
     $username = $_COOKIE['username'];
     $password = $_COOKIE['password'];
 

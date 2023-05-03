@@ -1,6 +1,6 @@
 <?php
 $connect = mysqli_connect("localhost", "root", "", "fusiontech");
-if ($_COOKIE['rem'] == 1){
+if (isset($_COOKIE['rem'] ) && $_COOKIE['rem'] == 1){
     $username = $_COOKIE['username'];
     $password = $_COOKIE['password'];
 
@@ -22,12 +22,12 @@ $page = "gallery" ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
+    <meta charset="UTF-8"
     <link rel="stylesheet" href="bootstrap-5.3.0-alpha1-dist/css/bootstrap.min.css">
+    <script src="bootstrap-5.3.0-alpha1-dist/js/bootstrap.bundle.min.js"></script>
     <link rel="icon" href="Res/favicon.png">
     <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
     <link rel="stylesheet" href="bootstrap-5.3.0-alpha1-dist/css/Docs.css">
-    <script src="bootstrap-5.3.0-alpha1-dist/js/bootstrap.bundle.min.js"></script>
     <title>Fusion Tech - Gallary</title>
 </head>
 <body class="cst-bg-darker text-white">

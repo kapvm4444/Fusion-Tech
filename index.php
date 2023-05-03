@@ -1,6 +1,6 @@
 <?php
 $connect = mysqli_connect("localhost", "root", "", "fusiontech");
-if ($_COOKIE['rem'] == 1){
+if ( isset($_COOKIE['rem'] ) && $_COOKIE['rem'] == 1){
     $username = $_COOKIE['username'];
     $password = $_COOKIE['password'];
 
@@ -26,7 +26,7 @@ $page = "index" ?>
     <link rel="icon" href="Res/favicon.png">
     <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
     <link rel="stylesheet" href="bootstrap-5.3.0-alpha1-dist/css/Docs.css">
-    <script src="bootstrap-5.3.0-alpha1-dist/js/bootstrap.bundle.min.js"></script>
+    <script src="bootstrap-5.3.0-alpha1-dist/js/bootstrap.bundle.js"></script>
     <title>Fusion Tech</title>
 </head>
 <body class="cst-bg-darker text-white">
@@ -49,14 +49,14 @@ $page = "index" ?>
             <button type="button" data-bs-target="#slider1" data-bs-slide-to="5" aria-label="Slide 6"></button>
         </div>
         <div class="carousel-inner">
-            <div class="carousel-item active">
+            <div class="carousel-item active" id="home">
                 <img src="Res/image/Showcase/Gallary%20item%20(1).jpg" class="d-block w-100" alt="img1">
                 <div class="carousel-caption d-none d-md-block top-50">
-                    <p class="text-qualy  my-0 fw-bold shadow-lg">Welcome to,</p>
+                    <p class="text-qualy my-0 fw-bold shadow-lg ">Welcome to,</p>
                     <div class="display-1 text-akira shadow-lg fw-bold my-0">Fusion Tech</div>
                 </div>
             </div>
-            <div class="carousel-item">
+            <div class="carousel-item" id="build">
                 <img src="Res/image/Showcase/build.jpg" class="d-block w-100" alt="img2" >
                 <div class="carousel-caption d-none d-md-block top-50">
                     <div class="display-1 text-akira shadow-lg fw-bold">Build Up</div>
@@ -64,7 +64,7 @@ $page = "index" ?>
                     <a href="builder.php" class="text-decoration-none btn btn-danger mt-4">Build Now</a>
                 </div>
             </div>
-            <div class="carousel-item">
+            <div class="carousel-item" id="compare">
                 <img src="Res/image/Showcase/compare.jpg" class="d-block w-100" alt="img3">
                 <div class="carousel-caption d-none d-md-block top-50">
                     <p class="text-qualy my-0 fw-bold shadow-lg">Compare Products</p>
@@ -72,7 +72,7 @@ $page = "index" ?>
                     <a href="compare.php" class="text-decoration-none btn btn-secondary mt-4">Compare Now</a>
                 </div>
             </div>
-            <div class="carousel-item">
+            <div class="carousel-item" id="feed">
                 <img src="Res/image/Showcase/chat.jpg" class="d-block w-100" alt="img3">
                 <div class="carousel-caption d-none d-md-block top-50">
                     <div class="display-1 text-akira shadow-lg fw-bold my-0">Communicate</div>
@@ -80,7 +80,7 @@ $page = "index" ?>
                     <a href="feed.php" class="text-decoration-none btn btn-light mt-4">Click here</a>
                 </div>
             </div>
-            <div class="carousel-item">
+            <div class="carousel-item" id="guide">
                 <img src="Res/image/Showcase/chip%20(1).jpg" class="d-block w-100" alt="img3">
                 <div class="carousel-caption d-none d-md-block top-50">
                     <p class="text-qualy my-0 fw-bold shadow-lg">Need any</p>
@@ -89,7 +89,7 @@ $page = "index" ?>
                     <a href="guide.php" class="text-decoration-none btn btn-dark mt-4">Watch Now</a>
                 </div>
             </div>
-            <div class="carousel-item">
+            <div class="carousel-item" id="shop">
                 <img src="Res/image/Showcase/buy.jpg" class="d-block w-100" alt="img3">
                 <div class="carousel-caption d-none d-md-block top-50">
                     <p class="text-qualy mb-0 fw-bold shadow-lg">Buy The Products at the lowest price available in</p>

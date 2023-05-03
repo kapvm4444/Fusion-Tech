@@ -1,7 +1,7 @@
 <?php $page = "build";
 $connect = mysqli_connect("localhost", "root", "", "fusiontech");
 
-if ($_COOKIE['rem'] == 1){
+if (isset($_COOKIE['rem'] ) && $_COOKIE['rem'] == 1){
     $username = $_COOKIE['username'];
     $password = $_COOKIE['password'];
 
@@ -31,12 +31,13 @@ if (!isset($_SESSION['username'])){
     <link rel="icon" href="Res/favicon.png">
     <link rel="stylesheet" href="bootstrap-5.3.0-alpha1-dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="bootstrap-5.3.0-alpha1-dist/css/Docs.css">
-    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
     <script src="bootstrap-5.3.0-alpha1-dist/js/bootstrap.bundle.min.js"></script>
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
     <title>Fusion Tech - Builder</title>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
     <script src="bootstrap-5.3.0-alpha1-dist/js/Print/html5-3.6-respond-1.1.0.min.js"></script>
     <script>
+        //GETTING THE TOTAL PRICE AND DISPLAYING IN THE END---------------------------------------------------------------------jQUERY-----------------------------------------------------------------------
         var cpu = 0;
         var ram = 0;
         var MB = 0;
@@ -158,6 +159,7 @@ if (!isset($_SESSION['username'])){
 
     </script>
     <script>
+        //GETTING ALL THE DATA IN THE DROPDOWNS --------------------------------------------------------------------------jQUERY-----------------------------------------------------------------------------
         //display cpu models
         $(document).ready(function (){
             $('#catNameCpu').change(function (){
@@ -490,13 +492,13 @@ if (!isset($_SESSION['username'])){
                 <tr class="p-5">
                     <td class="p-5 pb-0">
                         <label class="form-label text-white fw-bold">RAM <span class="text-danger">*</span></label>
-                        <select class="form-select border-1 border-success d-block" id="catNameRam" required>
+                        <select class="form-select border-1 border-success d-block" id="catNameRam" name="ram" required>
                             <option value="">-- Please Select --</option>
                         </select>
                     </td>
                     <td class="p-5 pb-0">
                         <label class="form-label text-white fw-bold">RAM Model <span   class="text-danger">*</label>
-                        <select class="form-select border-1 border-success d-block" id="catSelfRam" required>
+                        <select class="form-select border-1 border-success d-block" id="catSelfRam" name="ram_model" required>
                             <option value="">-- Please Select --</option>
                         </select>
                     </td>
@@ -505,13 +507,13 @@ if (!isset($_SESSION['username'])){
                 <tr class="p-5">
                     <td class="p-5 pb-0">
                         <label class="form-label text-white fw-bold">MotherBoard <span class="text-danger">*</span></label>
-                        <select class="form-select border-1 border-success d-block" id="catNameMB" required>
+                        <select class="form-select border-1 border-success d-block" id="catNameMB" name="motherboard" required>
                             <option value="">-- Please Select --</option>
                         </select>
                     </td>
                     <td class="p-5 pb-0">
                         <label class="form-label text-white fw-bold">MotherBoard Model <span   class="text-danger">*</label>
-                        <select class="form-select border-1 border-success d-block" id="catSelfMB" required>
+                        <select class="form-select border-1 border-success d-block" id="catSelfMB" name="mt_model" required>
                             <option value="">-- Please Select --</option>
                         </select>
                     </td>
@@ -520,14 +522,14 @@ if (!isset($_SESSION['username'])){
                 <tr class="p-5">
                     <td class="p-5 pb-0 w-50">
                         <label class="form-label text-white fw-bold">Cabinet <span class="text-danger">*</span></label>
-                        <select class="form-select border-1 border-success d-block" id="catNameCab" required>
+                        <select class="form-select border-1 border-success d-block" id="catNameCab" name="cabinet" required>
                             <option value="">-- Please Select --</option>
 
                         </select>
                     </td>
                     <td class="p-5 pb-0 w-60">
                         <label class="form-label text-white fw-bold">Cabinet Model <span   class="text-danger">*</label>
-                        <select class="form-select border-1 border-success d-block" id="catSelfCab" required>
+                        <select class="form-select border-1 border-success d-block" id="catSelfCab" name="c_model" required>
                             <option value="">-- Please Select --</option>
                         </select>
                     </td>
@@ -536,13 +538,13 @@ if (!isset($_SESSION['username'])){
                 <tr class="p-5">
                     <td class="p-5 pb-0">
                         <label class="form-label text-white fw-bold">Graphics Card <span   class="text-danger">*</label>
-                        <select class="form-select border-1 border-success d-block" id="catNameGpu" required>
+                        <select class="form-select border-1 border-success d-block" id="catNameGpu" name="graphic-card" required>
                             <option value="">-- Please Select --</option>
                         </select>
                     </td>
                     <td class="p-5 pb-0">
                         <label class="form-label text-white fw-bold">Graphics Card Model <span class="text-danger">*</span></label>
-                        <select class="form-select border-1 border-success d-block" id="catSelfGpu" required>
+                        <select class="form-select border-1 border-success d-block" id="catSelfGpu" name="gpu_model" required>
                             <option value="">-- Please Select --</option>
                         </select>
                     </td>
@@ -551,13 +553,13 @@ if (!isset($_SESSION['username'])){
                 <tr class="p-5">
                     <td class="p-5 pb-0">
                         <label class="form-label text-white fw-bold">SSD <span class="text-danger">*</span></label>
-                        <select class="form-select border-1 border-success d-block" id="catNameSsd" required>
+                        <select class="form-select border-1 border-success d-block" id="catNameSsd" name="ssd" required>
                             <option value="">-- Please Select --</option>
                         </select>
                     </td>
                     <td class="p-5 pb-0">
                         <label class="form-label text-white fw-bold">SSD Model <span   class="text-danger">*</label>
-                        <select class="form-select border-1 border-success d-block" id="catSelfSsd" required>
+                        <select class="form-select border-1 border-success d-block" id="catSelfSsd" name="ssd_model" required>
                             <option value="">-- Please Select --</option>
                         </select>
                     </td>
@@ -566,13 +568,13 @@ if (!isset($_SESSION['username'])){
                 <tr class="p-5">
                     <td class="p-5 pb-0">
                         <label class="form-label text-white fw-bold">Cooler <span  class="text-danger">*</label>
-                        <select class="form-select border-1 border-success d-block" id="catNameCooler" required>
+                        <select class="form-select border-1 border-success d-block" id="catNameCooler" name="cooler" required>
                             <option value="">-- Please Select --</option>
                         </select>
                     </td>
                     <td class="p-5 pb-0">
                         <label class="form-label text-white fw-bold">Cooler Model <spa class="text-danger">*</spa></label>
-                        <select class="form-select border-1 border-success d-block" id="catSelfCooler" required>
+                        <select class="form-select border-1 border-success d-block" id="catSelfCooler" name="cooler_model" required>
                             <option value="">-- Please Select --</option>
                         </select>
                     </td>
@@ -581,13 +583,13 @@ if (!isset($_SESSION['username'])){
                 <tr class="p-5">
                     <td class="p-5 pb-0">
                         <label class="form-label text-white fw-bold">SMPS <spa class="text-danger">*</spa></label>
-                        <select class="form-select border-1 border-success d-block" id="catNameSmps" required>
+                        <select class="form-select border-1 border-success d-block" id="catNameSmps" name="smps" required>
                             <option value="">-- Please Select --</option>
                         </select>
                     </td>
                     <td class="p-5 pb-0">
                         <label class="form-label text-white fw-bold">SMPS Model <span  class="text-danger">*</label>
-                        <select class="form-select border-1 border-success d-block" id="catSelfSmps" required>
+                        <select class="form-select border-1 border-success d-block" id="catSelfSmps" name="smps_model" required>
                             <option value="">-- Please Select --</option>
                         </select>
                     </td>
@@ -596,7 +598,7 @@ if (!isset($_SESSION['username'])){
                 <tr class="p-5">
                     <td class="p-5 pb-0">
                         <label class="form-label text-white fw-bold">Windows <span class="text-danger">*</span></label>
-                        <select class="form-select border-1 border-success d-block" id="catNameOS" required>
+                        <select class="form-select border-1 border-success d-block" id="catNameOS" name="windows" required>
                             <option value="">-- Please Select --</option>
                             <option value="ten">Windows 10</option>
                             <option value="eleven">Windows 11</option>
@@ -604,7 +606,7 @@ if (!isset($_SESSION['username'])){
                     </td>
                     <td class="p-5 pb-0">
                         <label class="form-label text-white fw-bold">Windows Edition <span class="text-danger">*</span></label>
-                        <select class="form-select border-1 border-success d-block" id="catSelfOS" required>
+                        <select class="form-select border-1 border-success d-block" id="catSelfOS" name="win_edition" required>
                             <option value="">-- Please Select --</option>
                             <option value="home">Home Edition</option>
                             <option value="pro">Professional Edition</option>

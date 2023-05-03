@@ -1,6 +1,6 @@
 <?php
 $connect = mysqli_connect("localhost", "root", "", "fusiontech");
-if ($_COOKIE['rem'] == 1){
+if (isset($_COOKIE['rem'] ) && $_COOKIE['rem'] == 1){
     $username = $_COOKIE['username'];
     $password = $_COOKIE['password'];
 
@@ -40,10 +40,10 @@ $page = "guide" ?>
 </div>
 
 
-<div class="row m-5 p-5">
+<div class="row m-5 p-5 border-bottom border-1 border-success">
     <div class="col-sm-12 col-lg-6 text-center">
 <!--        <iframe width="550" height="300" src="https://www.youtube.com/embed/v7MYOpFONCU" title="First Person View PC BUILD Guide! (POV)" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>-->
-        <a href="https://www.youtube.com/embed/v7MYOpFONCU" class="text-decoration-none text-white">
+        <a target="_blank" href="https://www.youtube.com/embed/v7MYOpFONCU" class="text-decoration-none text-white">
             <img class="img-fluid" src="Res/Guide_Thumbnails/Guide_Thumbnail%201.png" height="300" width="550" alt="Thumbnail image 1"></a>
     </div>
     <div class="col-sm-12 col-lg-6">
@@ -53,10 +53,10 @@ $page = "guide" ?>
 
 
 
-<div class="row m-5 p-5">
+<div class="row m-5 p-5 border-bottom border-1 border-success">
     <div class="col-sm-12 col-lg-6 text-center">
 <!--        <iframe width="550" height="300" src="https://www.youtube.com/embed/c3dggnkaEs8" title="How to cable manage your PC like a PRO!" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>-->
-        <a href="https://www.youtube.com/embed/c3dggnkaEs8" class="text-decoration-none text-white">
+        <a target="_blank" href="https://www.youtube.com/embed/c3dggnkaEs8" class="text-decoration-none text-white">
             <img class="img-fluid" src="Res/Guide_Thumbnails/Guide_Thumbnail%202.png" height="300" width="550" alt="Thumbnail image 2"></a>
     </div>
     <div class="col-sm-12 col-lg-6">
@@ -65,10 +65,10 @@ $page = "guide" ?>
 </div>
 
 
-<div class="row m-5 p-5">
+<div class="row m-5 p-5 border-bottom border-1 border-success">
     <div class="col-sm-12 col-lg-6 text-center">
 <!--        <iframe width="550" height="300" src="https://www.youtube.com/embed/T54GsfgmIXE" title="3 Tips for Keeping a PC Clean (Long-Term)" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>-->
-        <a href="https://www.youtube.com/embed/T54GsfgmIXE" class="text-decoration-none text-white">
+        <a target="_blank" href="https://www.youtube.com/embed/T54GsfgmIXE" class="text-decoration-none text-white">
             <img class="img-fluid" src="Res/Guide_Thumbnails/Guide_Thumbnail%203.png" height="300" width="550" alt="Thumbnail image 3"></a>
     </div>
     <div class="col-sm-12 col-lg-6">
@@ -76,10 +76,10 @@ $page = "guide" ?>
     </div>
 </div>
 
-<div class="row m-5 p-5">
+<div class="row m-5 p-5 border-bottom border-1 border-success">
     <div class="col-sm-12 col-lg-6 text-center">
 <!--        <iframe width="550" height="300" src="https://www.youtube.com/embed/5ZnDESqJdyU" title="Beginners Guide to Watercooling! Easy to Understand Tutorial" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>-->
-        <a href="https://www.youtube.com/embed/5ZnDESqJdyU" class="text-decoration-none text-white">
+        <a target="_blank" href="https://www.youtube.com/embed/5ZnDESqJdyU" class="text-decoration-none text-white">
             <img class="img-fluid" src="Res/Guide_Thumbnails/Guide_Thumbnail%204.png" height="300" width="550" alt="Thumbnail image 4"></a>
     </div>
     <div class="col-sm-12 col-lg-6">
@@ -90,7 +90,7 @@ $page = "guide" ?>
 <div class="row m-5 p-5">
     <div class="col-sm-12 col-lg-6 text-center">
 <!--        <iframe width="550" height="300" src="https://www.youtube.com/embed/iwXm_rbJ2uA" title="Finally building a PC? Watch this first..." frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>-->
-        <a href="https://www.youtube.com/embed/iwXm_rbJ2uA" class="text-decoration-none text-white">
+        <a target="_blank" href="https://www.youtube.com/embed/iwXm_rbJ2uA" class="text-decoration-none text-white">
             <img class="img-fluid" src="Res/Guide_Thumbnails/Guide_Thumbnail%205.png" height="300" width="550" alt="Thumbnail image 5"></a>
     </div>
     <div class="col-sm-12 col-lg-6">

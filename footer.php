@@ -18,17 +18,17 @@
                         <hr class="light">
                     </div>
                     <div class="col-md-3 col-md-offset-1 cst-text-razer">
-                        <h5 class="short text-white">Contact Us</h5>
-                        <span class="phone">123-456-7890</span>
-                        <p class="short">International: (333) 123-4567</p>
-                        <p class="short">Fax: (111) 123-1234</p>
+                        <h5 class="short text-white">Contact Us</h5></a>
+                        <a href="tel:123-456-7890" class="text-decoration-none cst-text-razer"><span class="phone">123-456-7890</span></a>
+                        <a href="tel:333-123-4567" class="text-decoration-none cst-text-razer"><p class="short">International: (333) 123-4567</p></a>
+                        <a href="tel:111-123-1234" class="text-decoration-none cst-text-razer"><p class="short">Fax: (111) 123-1234</p></a>
                         <ul class="list-unstyled">
                             <li><a href="mailto:kapvm4444@gmail.com" class="text-decoration-none text-white"><i class="fa fa-envelope me-2 text-danger"></i>info@fusiontech.com</a></li>
                         </ul>
-                        <div class="social-icons mb-4">
-                            <a class="text-decoration-none text-info" href="https://www.twitter.com"> <i class="fa fa-twitter me-2"></i></a>
-                            <a class="text-decoration-none text-primary" href="https://www.facebook.com"> <i class="fa fa-facebook mx-2"></i></a>
-                            <a class="text-decoration-none text-instagram" href="https://www.instagram.com"> <i class="fa fa-instagram mx-2"></i></a>
+                        <div class="mb-4">
+                            <a class="text-decoration-none text-info social-icons" href="https://www.twitter.com"> <i class="fa fa-twitter me-2"></i></a>
+                            <a class="text-decoration-none text-primary social-icons" href="https://www.facebook.com"> <i class="fa fa-facebook mx-2"></i></a>
+                            <a class="text-decoration-none text-instagram social-icons" href="https://www.instagram.com"> <i class="fa fa-instagram mx-2"></i></a>
                         </div>
                     </div>
                 </div>
