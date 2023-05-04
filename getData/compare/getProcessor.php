@@ -34,7 +34,6 @@ elseif (!empty($cpuL)){
                 'document.getElementById("cpuCoreL").innerHTML = "'.$fetch['cores'].'";'.
                 'document.getElementById("cpuThreadL").innerHTML = "'.$fetch['threads'].'";'.
                 'document.getElementById("cpuGpuL").innerHTML = "'.$cpuGpuName.'";'.
-                'document.getElementById("cpuGpuMemL").innerHTML = "'.$fetch['gpu_mem'].' GB";'.
                 'document.getElementById("cpuSocketL").innerHTML = "'.$fetch['socket'].'";'.
                 'document.getElementById("cpuRamL").innerHTML = "'.$fetch['ram'].'";'.
                 'document.getElementById("cpuPriceL").innerHTML = "Rs. '.$fetch['price'].'";'.

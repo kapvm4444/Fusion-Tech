@@ -7,6 +7,6 @@ setcookie('password', "", -5000);
 $_COOKIE['rem'] = 0;
 session_unset();
 session_destroy();
-header("Location: http://localhost/Fusion%20Tech/index.php");
+header("Location: ../index.php");
 exit();
 ?>

@@ -51,7 +51,7 @@ $result = mysqli_query($connect, $qry);
             echo "<a href='".$data['link']."' class='text-decoration-none text-white'>
             <div class='card cst-bg-dark m-5 d-inline-block shop-item' style='width: 20rem'>
                 <img class='card-img-top cst-bg-darker' src='".$data["img"]."' height='300' width='300'>
-                <div class='card-body' style='height: 15rem'>
+                <div class='card-body text-capitalize' style='height: 15rem'>
                     <h4 class='card-title'>
                         ".$data['brand']." ".$data["name"]."
                     </h4>

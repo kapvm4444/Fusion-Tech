@@ -20,7 +20,7 @@ else{
 }
 if (!isset($_SESSION['username'])){
     sleep(1);
-    header("Location: http://localhost/Fusion%20Tech/users/login.php");
+    header("Location: users/login.php");
     exit();
 }
 ?>
@@ -120,7 +120,7 @@ if (!isset($_SESSION['username'])){
         });
 
         $(document).ready(function (){
-            $('#selfcatSelfSmps').change(function (){
+            $('#catSelfSmps').change(function (){
                 let str = $(this).children("option:selected").text();
                 let arr = str.split("+");
                 smps = Number(arr[arr.length-1]);

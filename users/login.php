@@ -78,7 +78,7 @@ if (isset($_POST['submit'])) {
                 $_SESSION['password'] = $password;
                 $_COOKIE['username'] = $username;
                 $_COOKIE['password'] = $password;
-                header("Location: http://localhost/Fusion%20Tech/index.php");
+                header("Location: ../index.php");
                 exit;
             }
         } else {

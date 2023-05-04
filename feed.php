@@ -1,7 +1,6 @@
 <?php
+
 $page = "feed";
-
-
 $connect = mysqli_connect("localhost", "root", "", "fusiontech");
 if (isset($_COOKIE['rem'] ) && $_COOKIE['rem'] == 1){
     $username = $_COOKIE['username'];
@@ -23,7 +22,7 @@ else{
 
 if (!isset($_SESSION['username'])){
     sleep(1);
-    header("Location: http://localhost/Fusion%20Tech/users/login.php");
+    header("Location: users/login.php");
     exit();
 }
 ?>
@@ -32,15 +31,16 @@ if (!isset($_SESSION['username'])){
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <link rel="icon" href="Res/favicon.png">
-    <script src="bootstrap-5.3.0-alpha1-dist/js/bootstrap.min.js"></script>
     <link rel="stylesheet" href="bootstrap-5.3.0-alpha1-dist/css/bootstrap.min.css">
+    <link rel="icon" href="Res/favicon.png">
+    <script src="bootstrap-5.3.0-alpha1-dist/js/bootstrap.bundle.min.js"></script>
     <link rel="stylesheet" href="bootstrap-5.3.0-alpha1-dist/css/Docs.css">
     <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
     <title>Fusion Tech - Forum</title>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
-
     <script>
+
+
         $(document).ready(function (){
             //Send Context to page----------------------------------------
             $('#send').attr('disabled', 'disabled');
@@ -99,8 +99,6 @@ if (!isset($_SESSION['username'])){
             })
         }, 500);
 
-    </script>
-    <script>
     </script>
 </head>
 <body class="cst-bg-darker text-black" style="background: url('Res/image/feed.jpg') repeat fixed;">

@@ -27,10 +27,10 @@ else{
     <meta charset="UTF-8">
     <link rel="stylesheet" href="bootstrap-5.3.0-alpha1-dist/css/bootstrap.min.css">
     <link rel="icon" href="Res/favicon.png">
-    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="bootstrap-5.3.0-alpha1-dist/css/Docs.css">
     <script src="bootstrap-5.3.0-alpha1-dist/js/bootstrap.bundle.min.js"></script>
-    <title>Fusion Tech</title>
+    <link rel="stylesheet" href="bootstrap-5.3.0-alpha1-dist/css/Docs.css">
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+    <title>Fusion Tech - Compare</title>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
     <script>
 
@@ -293,18 +293,6 @@ else{
                     <td class="px-5 w-50">
                         <p class="text-secondary mb-0 mt-5">Graphics</p>
                         <div class="display-6" id="cpuGpuR">-</div>
-                    </td>
-                </tr>
-
-                <!--GPU Memory-->
-                <tr>
-                    <td class="px-5 w-50">
-                        <p class="text-secondary mb-0 mt-5">Graphics Memory</p>
-                        <div class="display-6" id="cpuGpuMemL">-</div>
-                    </td>
-                    <td class="px-5 w-50">
-                        <p class="text-secondary mb-0 mt-5">Graphics Memory</p>
-                        <div class="display-6" id="cpuGpuMemR">-</div>
                     </td>
                 </tr>
 

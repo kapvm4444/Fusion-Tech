@@ -34,7 +34,7 @@ if (!empty($CpuBrand)){
     }
 }
 
-//Displaying CPU Model
+//Displaying RAM Model
 $CpuModel = !empty($_POST['cpuModel']) ? $_POST['cpuModel'] : "";
 $RamType = "abc";
 
@@ -48,7 +48,7 @@ if (!empty($CpuModel)){
         }
     }
 
-    $qry = "select distinct brand from ram where type = '" . $RamType . "'";
+    $qry = "select distinct brand from ram;";
     $out = mysqli_query($connect, $qry);
     if(mysqli_num_rows($out) > 0){
         echo '<option value="">-- Please Select --</option>';
@@ -74,7 +74,7 @@ if (!empty($ramBrand)){
         }
     }
 
-    $qry = "SELECT * FROM `ram` where brand = '".$ramBrand."' AND type = '".$RamType."';";
+    $qry = "SELECT * FROM `ram` where brand = '".$ramBrand."';";
     $out = mysqli_query($connect, $qry);
 
     if(mysqli_num_rows($out) > 0){
@@ -111,7 +111,7 @@ if (!empty($ramModel)){
         }
     }
 
-    $qry = "SELECT distinct brand FROM `motherboard` where socket = '".$CpuSocketMb."' AND ram_type = '".$RamTypeMb."';";
+    $qry = "SELECT distinct brand FROM `motherboard` where socket = '".$CpuSocketMb."';";
     $out = mysqli_query($connect, $qry);
 
     if(mysqli_num_rows($out) > 0){
@@ -148,7 +148,7 @@ if (!empty($mbBrand)){
         }
     }
 
-    $qry = "SELECT * FROM `motherboard` where socket = '".$CpuSocketMb2."' AND ram_type = '".$RamTypeMb2."' AND brand = '".$mbBrand."';";
+    $qry = "SELECT * FROM `motherboard` where socket = '".$CpuSocketMb2."' AND brand = '".$mbBrand."';";
     $out = mysqli_query($connect, $qry);
 
     if(mysqli_num_rows($out) > 0){

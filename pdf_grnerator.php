@@ -136,95 +136,95 @@ $pdf->SetFont("PoppinsBold", "", 15);
 $pdf->Cell(0,20, "Custom PC configuration Estimation", 1,1,"C");
 
 $pdf->Cell(63, 13, "Category", 1,0,"C");
-$pdf->Cell(63, 13, "Component", 1,0,"C");
-$pdf->Cell(64, 13, "Price", 1,1,"C");
+$pdf->Cell(97, 13, "Component", 1,0,"C");
+$pdf->Cell(30, 13, "Price", 1,1,"C");
 
-$pdf->SetFont("Poppins", "", 15);
+$pdf->SetFont("Poppins", "", 12);
 //processor
 $pdf->Cell(63, 10, "Processor", 1,0);
-$pdf->Cell(63, 10, $processor, 1,0);
-$pdf->Cell(64, 10, "", 'LR1',1);
+$pdf->Cell(97, 10, $processor, 1,0);
+$pdf->Cell(30, 10, "", 'LR1',1);
 
 $pdf->Cell(63, 10, "Processor Model", 1,0);
-$pdf->Cell(63, 10, $p_model, 1,0);
-$pdf->Cell(64, 10, $price_cpu, 'LRB1',1, "L");
+$pdf->Cell(97, 10, $p_model, 1,0);
+$pdf->Cell(30, 10, $price_cpu, 'LRB1',1, "L");
 
 //RAM
 $pdf->Cell(63, 10, "RAM", 1,0);
-$pdf->Cell(63, 10, $ram, 1,0);
-$pdf->Cell(64, 10, "", 'LR1',1);
+$pdf->Cell(97, 10, $ram, 1,0);
+$pdf->Cell(30, 10, "", 'LR1',1);
 
 $pdf->Cell(63, 10, "RAM Model", 1,0);
-$pdf->Cell(63, 10, $ram_model, 1,0);
-$pdf->Cell(64, 10, $price_ram, 'LRB1',1, "L");
+$pdf->Cell(97, 10, $ram_model, 1,0);
+$pdf->Cell(30, 10, $price_ram, 'LRB1',1, "L");
 
 //Motherboard
 $pdf->Cell(63, 10, "Motherboard", 1,0);
-$pdf->Cell(63, 10, $motherboard, 1,0);
-$pdf->Cell(64, 10, "", 'LR1',1);
+$pdf->Cell(97, 10, $motherboard, 1,0);
+$pdf->Cell(30, 10, "", 'LR1',1);
 
 $pdf->Cell(63, 10, "Motherboard Model", 1,0);
-$pdf->Cell(63, 10, $mt_model, 1,0);
-$pdf->Cell(64, 10, $price_mb, 'LRB1',1, "L");
+$pdf->Cell(97, 10, $mt_model, 1,0);
+$pdf->Cell(30, 10, $price_mb, 'LRB1',1, "L");
 
 //cabinet
 $pdf->Cell(63, 10, "Cabinet", 1,0);
-$pdf->Cell(63, 10, $cabinet, 1,0);
-$pdf->Cell(64, 10, "", 'LR1',1);
+$pdf->Cell(97, 10, $cabinet, 1,0);
+$pdf->Cell(30, 10, "", 'LR1',1);
 
 $pdf->Cell(63, 10, "Cabinet Model", 1,0);
-$pdf->Cell(63, 10, $c_model, 1,0);
-$pdf->Cell(64, 10, $price_cab, 'LRB1',1, "L");
+$pdf->Cell(97, 10, $c_model, 1,0);
+$pdf->Cell(30, 10, $price_cab, 'LRB1',1, "L");
 
 //Graphics
 $pdf->Cell(63, 10, "Graphic Card", 1,0);
-$pdf->Cell(63, 10, $gpu, 1,0);
-$pdf->Cell(64, 10, "", 'LR1',1);
+$pdf->Cell(97, 10, $gpu, 1,0);
+$pdf->Cell(30, 10, "", 'LR1',1);
 
 $pdf->Cell(63, 10, "Graphic Card Model", 1,0);
-$pdf->Cell(63, 10, $gpu_model, 1,0);
-$pdf->Cell(64, 10, $price_gpu, 'LRB1',1, "L");
+$pdf->Cell(97, 10, $gpu_model, 1,0);
+$pdf->Cell(30, 10, $price_gpu, 'LRB1',1, "L");
 
 //SSD
 $pdf->Cell(63, 10, "SSD", 1,0);
-$pdf->Cell(63, 10, $ssd, 1,0);
-$pdf->Cell(64, 10, "", 'LR1',1);
+$pdf->Cell(97, 10, $ssd, 1,0);
+$pdf->Cell(30, 10, "", 'LR1',1);
 
 $pdf->Cell(63, 10, "SSD Model", 1,0);
-$pdf->Cell(63, 10, $ssd_model, 1,0);
-$pdf->Cell(64, 10, $price_ssd, 'LRB1',1, "L");
+$pdf->Cell(97, 10, $ssd_model, 1,0);
+$pdf->Cell(30, 10, $price_ssd, 'LRB1',1, "L");
 
 //Cooler
 $pdf->Cell(63, 10, "Cooler", 1,0);
-$pdf->Cell(63, 10, $cooler, 1,0);
-$pdf->Cell(64, 10, "", 'LR1',1);
+$pdf->Cell(97, 10, $cooler, 1,0);
+$pdf->Cell(30, 10, "", 'LR1',1);
 
 $pdf->Cell(63, 10, "Cooler Model", 1,0);
-$pdf->Cell(63, 10, $cooler_model, 1,0);
-$pdf->Cell(64, 10, $price_cooler, 'LRB1',1, "L");
+$pdf->Cell(97, 10, $cooler_model, 1,0);
+$pdf->Cell(30, 10, $price_cooler, 'LRB1',1, "L");
 
 //SMPS
 $pdf->Cell(63, 10, "SMPS", 1,0);
-$pdf->Cell(63, 10, $smps, 1,0);
-$pdf->Cell(64, 10, "", 'LR1',1);
+$pdf->Cell(97, 10, $smps, 1,0);
+$pdf->Cell(30, 10, "", 'LR1',1);
 
 $pdf->Cell(63, 10, "SMPS Model", 1,0);
-$pdf->Cell(63, 10, $smps_model, 1,0);
-$pdf->Cell(64, 10, $price_smps, 'LRB1',1, "L");
+$pdf->Cell(97, 10, $smps_model, 1,0);
+$pdf->Cell(30, 10, $price_smps, 'LRB1',1, "L");
 
 //Windows
 $pdf->Cell(63, 10, "Windows", 1,0);
-$pdf->Cell(63, 10, $windows, 1,0);
-$pdf->Cell(64, 10, "", 'LR1',1);
+$pdf->Cell(97, 10, $windows, 1,0);
+$pdf->Cell(30, 10, "", 'LR1',1);
 
 $pdf->Cell(63, 10, "Windows Edition", 1,0);
-$pdf->Cell(63, 10, $win_edition, 1,0);
-$pdf->Cell(64, 10, $price_windows, 'LRB1',1, "L");
+$pdf->Cell(97, 10, $win_edition, 1,0);
+$pdf->Cell(30, 10, $price_windows, 'LRB1',1, "L");
 
 //total
 $pdf->SetFont("PoppinsBold", "", 15);
-$pdf->Cell(126, 10, "Sub Total", 1,0);
-$pdf->Cell(64, 10, $subtotal." INR", 1,1);
+$pdf->Cell(140, 10, "Sub Total", 1,0);
+$pdf->Cell(50, 10, $subtotal." INR", 1,1);
 
 
 $pdf->Output('D');
