@@ -53,7 +53,6 @@ if ($cpuR == 'select'){
         'document.getElementById("cpuCoreR").innerHTML = "-";'.
         'document.getElementById("cpuThreadR").innerHTML = "-";'.
         'document.getElementById("cpuGpuR").innerHTML = "-";'.
-        'document.getElementById("cpuGpuMemR").innerHTML = "-";'.
         'document.getElementById("cpuSocketR").innerHTML = "-";'.
         'document.getElementById("cpuRamR").innerHTML = "-";'.
         'document.getElementById("cpuPriceR").innerHTML = "-";'.
@@ -75,7 +74,6 @@ elseif (!empty($cpuR)){
                 'document.getElementById("cpuCoreR").innerHTML = "'.$fetch['cores'].'";'.
                 'document.getElementById("cpuThreadR").innerHTML = "'.$fetch['threads'].'";'.
                 'document.getElementById("cpuGpuR").innerHTML = "'.$cpuGpuName.'";'.
-                'document.getElementById("cpuGpuMemR").innerHTML = "'.$fetch['gpu_mem'].' GB";'.
                 'document.getElementById("cpuSocketR").innerHTML = "'.$fetch['socket'].'";'.
                 'document.getElementById("cpuRamR").innerHTML = "'.$fetch['ram'].'";'.
                 'document.getElementById("cpuPriceR").innerHTML = "Rs. '.$fetch['price'].'";'.

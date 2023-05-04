@@ -28,7 +28,7 @@ $page = "guide" ?>
     <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
     <link rel="stylesheet" href="bootstrap-5.3.0-alpha1-dist/css/Docs.css">
     <script src="bootstrap-5.3.0-alpha1-dist/js/bootstrap.bundle.min.js"></script>
-    <title>Fusion Tech</title>
+    <title>Fusion Tech - Guide</title>
 </head>
 <body class="cst-bg-darker text-white ">
 

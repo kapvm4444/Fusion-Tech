@@ -142,8 +142,18 @@ if (!isset($_SESSION['username'])){
     }
     ?>
 </div>
+<div class="bg-dark text-white w-100 float-start cst-h">
+    <div class="clearfix">
+        <div class="text-center" id="chat-user">
+            <input type="button" value="This is the latest content" class="btn p-0 m-0 text-capitalize border-0" name="user" disabled>
+        </div>
+        <div class="float-end fw-medium text-secondary text-decoration-underline" id="chat-user">
+        </div>
+    </div>
 
-<div class="m-5 cst-h upper">
+    <pre class="chat-text text-poppins mt-3 mb-2" id="chat-text">Lorem Ipsum Lorem Ipsum</pre>
+
+    <div class="text-secondary fw-light float-end">'.$fetch['createtime'].'</div>
 </div>
 
 <!--Message Box-->
@@ -155,6 +165,7 @@ if (!isset($_SESSION['username'])){
         <button class="btn btn-success fw-bolder text-white border-0 rounded-pill py-sm-2 py-lg-3 px-3" id="send"><i class="fa fa-send"></i> Send</button>
     </div>
 </div>
+
 <script>
     function Report(username){
         $.ajax({

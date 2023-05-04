@@ -30,7 +30,7 @@ else{
     <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
     <link rel="stylesheet" href="bootstrap-5.3.0-alpha1-dist/css/Docs.css">
     <script src="bootstrap-5.3.0-alpha1-dist/js/bootstrap.bundle.min.js"></script>
-    <title>Fusion Tech</title>
+    <title>Fusion Tech - Store</title>
 </head>
 <body class="cst-bg-darker text-white">
 
@@ -44,13 +44,13 @@ else{
 <!--Card-->
 <div class="card-group justify-content-center">
 <?php
-$qry = "select * from shop_cards";
+$qry = "select * from shop_cards order by category";
 $result = mysqli_query($connect, $qry);
     if(mysqli_num_rows($result) > 0){
         while($data = mysqli_fetch_assoc($result)){
-            echo "<a href='".$data['link']."' class='text-decoration-none text-white'>
+            echo "<a href='".$data['link']."' class='text-decoration-none text-white' target='_blank'>
             <div class='card cst-bg-dark m-5 d-inline-block shop-item' style='width: 20rem'>
-                <img class='card-img-top cst-bg-darker' src='".$data["img"]."' height='300' width='300'>
+                <img class='object-fit-scale card-img-top cst-bg-darker' src='".$data["img"]."' height='300' width='300'>
                 <div class='card-body text-capitalize' style='height: 15rem'>
                     <h4 class='card-title'>
                         ".$data['brand']." ".$data["name"]."
